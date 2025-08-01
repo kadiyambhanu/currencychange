@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="converted.css" rel="stylesheet">
+</head>
+<body>
+    <div class="converter-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="version"><img src="pile-of-money-free-png.webp" class="image"></div>
+            <h1>Currency Converter</h1>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <form id="converterForm" novalidate>
+                <!-- From Currency -->
+                <div class="form-group">
+                    <label class="form-label" for="fromCurrency">From:</label>
+                    <div class="currency-select">
+                        <select id="fromCurrency" required>
+                            <option value="">Select currency...</option>
+                        </select>
+                    </div>
+                    <div class="invalid-feedback">Please select a source currency.</div>
+                </div>
+
+                <!-- Swap Button -->
+                <div class="swap-currencies">
+                    <button type="button" class="swap-btn" id="swapBtn" title="Swap currencies">
+                        <i class="fas fa-exchange-alt"></i>
+                    </button>
+                </div>
+
+                <!-- To Currency -->
+                <div class="form-group">
+                    <label class="form-label" for="toCurrency">To:</label>
+                    <div class="currency-select">
+                        <select id="toCurrency" required>
+                            <option value="">Select currency...</option>
+                        </select>
+                    </div>
+                    <div class="invalid-feedback">Please select a target currency.</div>
+                </div>
+
+                <!-- Amount -->
+                <div class="form-group">
+                    <label class="form-label" for="amount">Amount:</label>
+                    <input type="number" 
+                           class="amount-input" 
+                           id="amount" 
+                           placeholder="Enter amount..." 
+                           min="0" 
+                           step="0.01" 
+                           required>
+                    <div class="invalid-feedback">Please enter a valid amount.</div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="button-container">
+                    <button type="submit" class="btn-convert" id="convertBtn">
+                        <div class="loading-spinner" id="loadingSpinner"></div>
+                        Convert
+                    </button>
+                    <button type="button" class="btn-insight" id="insightBtn">
+                        Get Currency<br>Insight
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Section -->
+            <div id="resultSection" class="result-section">
+                <div class="result-amount" id="resultAmount">0.00 USD</div>
+                <div class="result-details" id="resultDetails">Conversion result</div>
+                <div class="exchange-rate" id="exchangeRate">Exchange rate information</div>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="errorText">An error occurred</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="converted.js"></script>
+</body>
+</html>
